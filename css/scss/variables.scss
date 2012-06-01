@@ -6,12 +6,12 @@
 // default stack   - bg: $base3, fg: $base00
 // highlight stack - bg: $base2, fg: $base01
 
-$base01:    #8D8673; // optional emphasized content
-$base00:    #7D7662; // body text
-$base1:     #ABA696; // comments / secondary highlight
-$base2:     #E6E1D4; // background highlights
-$base3:     #E6E1D4; // background
-$base4:     #F0EDE5; // new page bg
+$base01:    #000; // optional emphasized content
+$base00:    #333; // body text
+$base1:     #999; // comments / secondary highlight
+$base2:     #ddd; // background highlights
+$base3:     #eee; // background
+$base4:     #fff; // new page bg
 $brown:     #AA6E46;
 $yellow:    #b58900;
 $orange:    #cb4b16;
@@ -21,6 +21,7 @@ $violet:    #6c71c4;
 $blue:      #268bd2; // works well with magenta
 $cyan:      #2aa198;
 $green:     #859900;
+$tardis:    #003D67;
 $fontstack: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
 $headlinefontstack: Ubuntu, $fontstack;
 

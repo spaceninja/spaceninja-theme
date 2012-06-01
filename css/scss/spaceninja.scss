@@ -19,74 +19,147 @@ html * {
 }
 body {
 	background: $base4;
+	background: #666 url("../images/dashboard-50light.png");
+	background: #B0B6BE url("../images/linen-light.png");
 	color: $base00;
-	font: 100%/1.66 $fontstack;
-	margin: 2em;
+	font: 17px/1.66 $fontstack;
+	font: 112.5%/1.66 $fontstack; // 18px
+	margin: 0;
+	@include transition(font-size .5s ease);
+}
+html.is_touch_device body {
+  background: #fcc;
 }
 h1, h2, h3, h4, h5, h6 {
   color: $base01;
-  color: $brown;
 }
 a {
 	color: $base01;
-	color: $brown;
 	text-decoration: none;
 	border-bottom: 1px solid $base2;
+	@include transition(all .5s ease);
 }
 a:hover, a:focus, a:active {
-	background-color: $base2;
+	background-color: $base3;
 }
 
 /* Page ------------------------------------------------------------------- */
-#page {
-  position: relative;
-  max-width: 40em; /* 50-75 char, 66 ideal */
-  max-width: 33em;
-  margin: 0 auto;
+html, body {
+  height: 100%;
 }
+html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6 {
+  -webkit-text-size-adjust:none;
+}
+#page {
+  min-height: 100%;
+  position: relative;
+  max-width: 1344px;
+  margin: 0 auto;
+  padding: 50px 0;
+  background: #fff;
+  background: rgba(255,255,255,.925);
+  @include boxshadow(0 0 15px rgba(0,0,0,.25));
+}
+#content {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  .post-content,
+  .author-bio,
+  .post footer,
+  #comments,
+  #respond {
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media only screen and (min-width: 1344px) and (min-height: 700px) {
+  body {
+    font-size: 125%; // 20px
+  }
+}
+@media only screen and (max-width: 1080px) {
+  #content {
+    width: 90%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+
 
 /* Header ----------------------------------------------------------------- */
 #site-header {
-	margin-bottom: 1em;
+  margin-bottom: 3em;
 	text-align: center;
   #site-title {
     display: inline-block;
   	margin: 0;
-  	line-height: 50px;
+  	line-height: 48px;
   	font-size: 60px;
   	text-transform: uppercase;
   	letter-spacing: .05em;
   	text-rendering: optimizeLegibility;
-  	.p {
-  	  letter-spacing: -.025em;
-  	}
+  	position: relative;
+  	color: $base00;
   	a {
-  	  display: block;
-    	font-weight: normal;
+  	  text-indent: -9999em;
+  	  display: inline-block;
     	border: 0;
-    	padding-left: 60px;
+    	width: 50px;
+    	height: 50px;
     	background: url("../images/logo-spaceninja-100.png") no-repeat;
     	background-size: 50px;
-    	//opacity: .5;
-    	font-weight: 100;
-    	color: $base2;
+  	}
+  	&:before, &:after {
+  	  position: absolute;
+  	  top: 0;
+  	  opacity: 0;
     	@include transition(all .5s ease);
-    	&:hover, &:focus {
-    	  opacity: .8;
-    	  color: $base1;
-    	}
+  	}
+  	&:before {
+  	  content: 'SPACE';
+  	  right: 60px;
+  	}
+  	&:after {
+  	  content: 'NINJA';
+  	  left: 60px;
+  	}
+  	&:hover:before, &:hover:after,
+  	&:focus:before, &:focus:after {
+  	  opacity: 1;
   	}
   }
 	#skip-link {
 		position: absolute;
 		left: -10000px;
 	}
+  @media only screen and (max-width: 480px) {
+    #site-title {
+      font-size: 35px;
+    }
+  }
 }
+.is_touch_device #site-header #site-title:before,
+.is_touch_device #site-header #site-title:after {
+  opacity: 1;
+}
+
 
 /* Navigation ------------------------------------------------------------- */
 #navigation {
-  margin-bottom: 2em;
-  font-size: 14px;
+  margin-bottom: 5em;
+  font-size: .875em; // 14px;
   line-height: 1;
   font-family: $headlinefontstack;
   text-transform: uppercase;
@@ -105,12 +178,12 @@ a:hover, a:focus, a:active {
         content: '';
         padding-right: .5em;
         display: inline-block;
-        width: 8px;
-        height: 8px;
-        background: url("../images/bullet-8px.png") no-repeat;
+        width: 9px;
+        height: 9px;
+        background: url("../images/bullet-9px.png") no-repeat;
         vertical-align: baseline;
         position: relative;
-        bottom: 1px;
+        bottom: .15em;
         //opacity: .5;
       }
       &:first-child:before {
@@ -134,23 +207,22 @@ h1, h2 ,h3, h4, h5, h6 {
   line-height: 1.1;
   margin: 0 0 5px;
 	text-rendering: optimizeLegibility;
+	font-weight: 300;
 }
 h1 {
-	font-size: 3em;
-}
-h2 {
 	font-size: 2.5em;
 }
-h3 {
+h2 {
 	font-size: 2em;
 }
+h3 {
+	font-size: 1.66em;
+}
 h4 {
-	font-size: 1.25em;
-	font-weight: bold;
+	font-size: 1.33em;
 }
 h5, h6 {
-	font-size: 1em;
-	font-weight: bold;
+  font-size: 1.25em;
 }
 strong, b {
   font-weight: bold;
@@ -165,8 +237,9 @@ em, i, cite {
 }
 blockquote {
   background: $base3;
-  color: $base01;
+  color: $base00;
   padding: .75em 1em;
+  font-style: italic;
   margin: 1em 0;
   @include roundcorners(.5em);
   p {
@@ -175,6 +248,9 @@ blockquote {
       margin: 0;
     }
   }
+  em, i {
+    font-style: normal;
+  }
   cite {
     font-size: smaller;
   }
@@ -182,7 +258,7 @@ blockquote {
 
 /* Compositional Elements ------------------------------------------------- */
 .kicker, .leadtxt {
-  font-size: 1.25em;
+  font-size: 1.25em; // 20px
 }
 sup, sub {
   a {
@@ -209,11 +285,11 @@ aside, .sidenote {
   border-width: 1px 0;
   padding: 1em 0 0;
   margin: 0 0 1em 1.5em;
-  font-size: .83em;
+  font-size: .875em; // 14px
   font-style: italic;
   h1, h2, h3, h4, h5, h6 {
     margin: 0;
-    font-size: 1em;
+    font-size: 1em; // 16px
     font-weight: bold;
   }
   p, table, ul, ol, dl, pre {
@@ -232,7 +308,7 @@ aside, .sidenote {
   border-width: 1px 0;
   padding: .5em 0;
   margin: 0 0 1em 1.5em;
-  font-size: 2em;
+  font-size: 2em; // 32px
   font-style: italic;
 }
 .footnote {
@@ -247,57 +323,68 @@ aside, .sidenote {
 .caption, .wp-caption-text {
   font-size: smaller;
   font-style: italic;
+  color: #666;
+  a {
+    color: #666;
+  }
 }
 .kern {
   letter-spacing: -.1em;
 }
 
 /* WordPress Styles ------------------------------------------------------- */
+#page-header {
+  margin-bottom: 3em;
+}
 .post-title {
+  font-size: 3em; // 48px
   letter-spacing: .025em;
   a {
-    font-weight: 100;
     border: 0;
     font-style: normal;
-    font-weight: 300;
   }
 }
-.post {
-  margin-bottom: 3em;
+body .post,
+body .page {
+  margin-bottom: 5em;
   .post-content {
     @include clearfix;
+    margin: 1.5em 0;
   }
   footer {
+    position: relative;
     border-top: 1px solid $base2;
     padding-top: 1em;
-    font-size: smaller;
     color: #666;
     clear: both;
     @include clearfix;
     .comments {
-      float: left;
+      position: absolute;
+      top: 1em;
+      left: 0;
       margin: 0;
       a {
         display: block;
-        height: 20px;
-        line-height: 20px;
+        height: 2em;
+        line-height: 2em;
       	position: relative;
-        font-size: 11px;
+        font-size: .688em; // 11px;
         margin: 0;
-      	padding: 0 10px;
+        padding: 0 .75em;
       	background: $base2;
       	color: $base00;
         border: 0;
       	@include roundcorners(4px);
+      	@include transition(none);
         &:before {
           content: "";
           display: block;
           position: absolute;
-          bottom: -5px;
-          left: 11px;
+          bottom: -.5em;
+          left: 1em;
           width: 0;
           height: 0;
-          border: 5px solid transparent;
+          border: .5em solid transparent;
           border-top-color: $base2;
           border-bottom: 0;
         }
@@ -311,25 +398,26 @@ aside, .sidenote {
       }
       span { // god knows why, but if this rule is merged with the a rule, webkit breaks
         display: block;
-        height: 20px;
-        line-height: 20px;
+        height: 2em;
+        line-height: 2em;
       	position: relative;
-        font-size: 11px;
+        font-size: .688em; // 11px;
         margin: 0;
-      	padding: 0 10px;
+        padding: 0 .75em;
       	background: $base2;
       	color: $base00;
         border: 0;
       	@include roundcorners(4px);
+      	@include transition(none);
         &:before {
           content: "";
           display: block;
           position: absolute;
-          bottom: -5px;
-          left: 11px;
+          bottom: -.5em;
+          left: 1em;
           width: 0;
           height: 0;
-          border: 5px solid transparent;
+          border: .5em solid transparent;
           border-top-color: $base2;
           border-bottom: 0;
         }
@@ -338,34 +426,34 @@ aside, .sidenote {
     .taxonomy {
       line-height: 1;
       float: right;
-      max-width: 30em;
-      margin: 0;
+      margin: 0 0 0 10em;
       text-align: right;
       .label {
         display: none;
       }
       a {
         display: inline-block;
-        height: 20px;
-        line-height: 20px;
+        height: 2em;
+        line-height: 2em;
         position: relative;
-        font-size: 11px;
+        font-size: .688em; // 11px;
         margin: 0 0 5px 10px;
-        padding: 0 10px 0 6px;
+        padding: 0 .75em 0 .33em;
         background: $base2;
       	color: $base00;
         border: 0;
         @include roundcorner(bottom, right, 4px);
         @include roundcorner(top, right, 4px);
+      	@include transition(none);
         &:before {
           content: "";
           display: block;
           position: absolute;
           top: 0;
-          left: -10px;
+          left: -1em;
           width: 0;
           height: 0;
-          border: 10px solid transparent;
+          border: 1em solid transparent;
           border-right-color: $base2;
           border-left: 0;
         }
@@ -387,14 +475,10 @@ aside, .sidenote {
 }
 .byline {
   font-size: smaller;
-  color: #666;
+  color: $base1;
   a {
-    color: #666;
-    border: 0;
-    &:hover, &:focus {
-      color: #000;
-      border-bottom: 1px solid $base2;
-    }
+    color: $base1;
+    border-color: $base3;
   }
 }
 .post-nav {
@@ -420,7 +504,7 @@ aside, .sidenote {
 }
 .author-bio {
   clear: both;
-  font-size: 14px;
+  font-size: .875em; // 14px;
   line-height: 1.5;
   border-top: 1px solid $base2;
   border-width: 1px 0;
@@ -431,11 +515,13 @@ aside, .sidenote {
     position: absolute;
     top: 1em;
     left: 0;
+    padding: 0;
   }
   header {
     padding-left: 80px;
     h3 {
-      font-size: 1.25em;
+      font-size: 1em;
+      font-weight: bold;
     }
   }
   .author-content {
@@ -452,21 +538,18 @@ aside, .sidenote {
       font-size: smaller;
       a {
         color: $base1;
-        border: 0;
-        &:hover, &:focus {
-          border-bottom: 1px solid $base2;
-        }
+        border-color: $base3;
       }
     }
   }
 }
 .single-post-navigation {
-  font-size: 14px;
+  font-size: .875em; // 14px;
   line-height: 1.5;
   border: 1px solid $base2;
   border-width: 1px 0;
   padding: 1em 0;
-  margin: 5em 0;
+  margin: 7.5em 0;
   @include clearfix;
   ul {
     list-style: none;
@@ -495,7 +578,7 @@ aside, .sidenote {
   }
 }
 .comment-navigation {
-  font-size: 14px;
+  font-size: .875em; // 14px;
   line-height: 1.5;
   border: 1px solid $base2;
   border-width: 1px 0;
@@ -519,16 +602,16 @@ aside, .sidenote {
       margin-right: .5em;
       display: inline-block;
       border: 0;
-      height: 20px;
-      line-height: 20px;
+      height: 2em;
+      line-height: 2em;
     	position: relative;
-      font-size: 14px;
       margin: 0 0 0 5px;
-    	padding: 0 7px;
+    	padding: 0 .75em;
     	background: $base2;
     	color: $base00;
       border: 0;
     	@include roundcorners(4px);
+    	@include transition(none);
     	&:hover, &:focus {
         background: $base1;
         color: $base3;
@@ -552,10 +635,10 @@ aside, .sidenote {
       display: block;
       position: absolute;
       top: 0;
-      left: -10px;
+      left: -1em;
       width: 0;
       height: 0;
-      border: 10px solid transparent;
+      border: 1em solid transparent;
       border-right-color: $base2;
       border-left: 0;
     }
@@ -572,10 +655,10 @@ aside, .sidenote {
       display: block;
       position: absolute;
       top: 0;
-      right: -10px;
+      right: -1em;
       width: 0;
       height: 0;
-      border: 10px solid transparent;
+      border: 1em solid transparent;
       border-left-color: $base2;
       border-right: 0;
     }
@@ -587,7 +670,7 @@ aside, .sidenote {
 .paged-post-navigation {
   text-align: center;
   line-height: 1;
-  margin: 3em 0;
+  margin: 5em 0;
   ul {
     display: inline;
     list-style: none;
@@ -600,16 +683,17 @@ aside, .sidenote {
       a, &.ellipsis {
         display: inline-block;
         border: 0;
-        height: 20px;
-        line-height: 20px;
+        height: 2em;
+        line-height: 2em;
       	position: relative;
-        font-size: 14px;
+        font-size: .875em; // 14px;
         margin: 0 0 0 5px;
-      	padding: 0 7px;
+      	padding: 0 .75em;
       	background: $base2;
       	color: $base00;
         border: 0;
       	@include roundcorners(4px);
+      	@include transition(none);
       }
     	a.current, a:hover, a:focus {
         background: $base1;
@@ -626,10 +710,10 @@ aside, .sidenote {
       display: block;
       position: absolute;
       top: 0;
-      left: -10px;
+      left: -1em;
       width: 0;
       height: 0;
-      border: 10px solid transparent;
+      border: 1em solid transparent;
       border-right-color: $base2;
       border-left: 0;
     }
@@ -648,10 +732,10 @@ aside, .sidenote {
       display: block;
       position: absolute;
       top: 0;
-      right: -10px;
+      right: -1em;
       width: 0;
       height: 0;
-      border: 10px solid transparent;
+      border: 1em solid transparent;
       border-left-color: $base2;
       border-right: 0;
     }
@@ -662,15 +746,12 @@ aside, .sidenote {
 }
 #comments {
   clear: both;
-  font-size: 14px;
+  font-size: .875em; // 14px;
   line-height: 1.5;
-  border-top: 1px solid $base2;
-  border-width: 1px 0;
-  padding: 1em 0 0;
-  margin: 3em 0 1em;
+  margin: 5em 0 1em;
   position: relative;
   .comments-title {
-    font-size: 1.25em;
+  	font-size: 1.66em;
   }
   .commentlist {
     margin: 0;
@@ -697,14 +778,18 @@ aside, .sidenote {
         left: 0;
       }
       h3 {
-        font-size: 16px;
+        font-size: 1em;
         font-weight: bold;
+        a {
+          border-color: $base3;
+        }
       }
       footer {
-        font-size: 11px;
+        font-size: smaller;
         color: $base1;
         a {
           color: $base1;
+          border-color: $base3;
         }
       }
     }
@@ -726,15 +811,37 @@ aside, .sidenote {
     }
   }
   .pingback {
+    font-size: smaller;
     p {
       margin: 0;
     }
+  }
+}
+#respond {
+  clear: both;
+  font-size: .875em; // 14px;
+  line-height: 1.5;
+  margin: 5em 0 0;
+  position: relative;
+  .respond-title {
+  	font-size: 1.66em;
+  }
+  .logged-in-as {
+    margin-top: 0;
   }
 }
 .post img,
 .post video,
 .post object {
   max-width: 100%;
+}
+.post img {
+  display: block;
+  background: #ccc;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 .gallery {
   dl, dt, dd {
@@ -852,13 +959,12 @@ table {
 
 /* Forms ------------------------------------------------------------------ */
 form {
-  font-size: 16px;
   max-width: 100%;
-	margin: 1em 0;
-	padding: 1em;
-  @include roundcorners(.5em);
+  margin: 1em 0;
+  border-top: 1px solid $base2;
+  padding-top: 1em;
+  padding: 1em;
   background: $base3;
-  color: $base01;
   @include clearfix;
   legend {
     font-size: 1.5em;
@@ -867,6 +973,7 @@ form {
   label {
     display: block;
     font-weight: bold;
+    font-size: 14px;
     &.error {
       color: $red;
     }
@@ -878,8 +985,8 @@ form {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    font-family: helvetica, arial, sans-serif;
-    font-size: 1em;
+    font-family: $fontstack;
+    font-size: 16px; // hard-coded for mobile
     width: 100%;
     &.error {
       border: 1px solid $red;
@@ -914,9 +1021,11 @@ form {
   input[type="url"],
   input[type="week"] {
     padding: .25em .5em;
+    background: $base4;
+    border: 1px solid $base1;
   }
   textarea {
-    min-height: 5em;
+    min-height: 7em;
     resize: vertical;
   }
   select {
@@ -930,22 +1039,6 @@ form {
   .field {
     clear: both;
     margin: .5em 0;
-    .field { // nested fields!
-      display: inline;
-      clear: none;
-      padding: 0;
-      margin: 0 10px 0 0;
-      &:last-child {
-        margin-right: 0;
-      }
-      label {
-        float: none;
-        text-align: left;
-        width: auto;
-        margin: 0 5px 0 0;
-        font-weight: normal;
-      }
-    }
     &.error {
       color: $red;
     }
@@ -953,7 +1046,7 @@ form {
       label:after {
         content: "*";
         font-family: georgia;
-        font-size: 25px;
+        font-size: 1.5em; // 24px
         line-height: 16px;
         display: inline-block;
         vertical-align: bottom;
@@ -968,19 +1061,24 @@ form {
   .radio,
   .radios,
   .check,
-  .checks {
+  .checks,
+  .comment-subscription-form {
     label {
       display: inline;
       margin-left: 5px;
+      font-weight: normal;
     }
   }
   .inline_help {
     margin: .5em 0;
-    font-size: 12px;
+    font-size: smaller;
     color: $base1;
   }
   .actions {
-    margin-top: 1;
+    margin-top: .5em;
+  }
+  p {
+    margin: .5em 0;
   }
   .field_with_errors {
     display: inline; // WTF, Rails?
@@ -998,7 +1096,7 @@ input[type="reset"],
 input[type="submit"],
 input[type="button"],
 button {
-  font-family: helvetica, arial, sans-serif;
+  font-family: $fontstack;
   font-weight: normal;
   display: inline-block;
   padding: .25em .5em;
@@ -1026,7 +1124,7 @@ button {
     @include linear-gradient(top, #ffffff 0%, #f3f3f3 50%, #ededed 51%, #ffffff 100%);
   }
   &.small {
-    font-size: 14px;
+    font-size: smaller;
   }
   &.bright {
     @include linear-gradient(top, #fef9ec 0%,#fddb7f 50%,#ffc62c 51%,#fdeec4 100%);
@@ -1049,4 +1147,21 @@ button {
 	padding-top: 1em;
 	margin-top: 5em;
 	font-size: smaller;
+	text-align: center;
+	padding: 1em 5% 0;
+	ul {
+	  list-style: none;
+	  li {
+	    display: inline;
+	    margin: 0;
+	    padding: 0;
+	    background: none;
+	    &:after {
+	      content: ', ';
+	    }
+	    &:last-child:after {
+	      content: '';
+	    }
+	  }
+	}
 }

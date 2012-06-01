@@ -52,6 +52,7 @@ smy+:`    .:y: sMMMMMMN-  `dMMMMMMh`-y:.    `:+ymh
 
 ?></title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="initial-scale=1.0">
 <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
 <link rel="stylesheet" href="<?php echo $stylesheetdir; ?>/css/reset.css" />
 <link rel="stylesheet" href="<?php echo $stylesheetdir; ?>/fonts/league-gothic/stylesheet.css" />
@@ -69,15 +70,7 @@ smy+:`    .:y: sMMMMMMN-  `dMMMMMMh`-y:.    `:+ymh
 
 		<header id="site-header" role="banner">
 			<h1 id="site-title"><a href="/">S<span class="p">p</span><span class="a">a</span>ce Ninja</a></h1>
+			<p id='skip-link'><em><a href="#navigation">Skip to Navigation</a> &darr;</em></p>
 		</header>
-
-		<nav id="navigation" role="navigation">
-			<ul>
-				<li><a href="/about">About</a></li>
-				<li><a href="/archives">Archives</a></li>
-				<li><a href="/themes">Themes</a></li>
-				<li><a href="/port">Portfolio</a></li>
-			</ul>
-		</nav> <!-- /#navigation -->
 
 		<div id="content" role="main">
