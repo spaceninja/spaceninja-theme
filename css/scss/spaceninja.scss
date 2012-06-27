@@ -18,30 +18,25 @@ html * {
     rendering-intent: auto;
 }
 body {
-	background: $base4;
-	background: #666 url("../images/dashboard-50light.png");
-	background: #B0B6BE url("../images/linen-light.png");
-	background: url("http://subtlepatterns.com/patterns/purty_wood.png");
+	background: #e9c287 url("../images/purty_wood.jpg");
 	color: $base00;
-	font: 17px/1.66 $fontstack;
 	font: 112.5%/1.66 $fontstack; // 18px
 	margin: 0;
 	@include transition(font-size .5s ease);
-}
-html.is_touch_device body {
-  background: #fcc;
 }
 h1, h2, h3, h4, h5, h6 {
   color: $base01;
 }
 a {
-	color: $base01;
+	color: $tardis;
 	text-decoration: none;
 	border-bottom: 1px solid $base2;
+	border-color: rgba(0,0,0,.2);
 	@include transition(all .5s ease);
 }
 a:hover, a:focus, a:active {
 	background-color: $base3;
+	background-color: rgba(64,64,64,.1);
 }
 
 /* Page ------------------------------------------------------------------- */
@@ -55,9 +50,10 @@ html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6 {
 #page {
   min-height: 100%;
   position: relative;
+  z-index: 0;
   max-width: 1344px;
   margin: 0 auto;
-  padding: 50px 0;
+  padding: 70px 0 50px;
   background: #fff;
   @include boxshadow(0 0 15px rgba(0,0,0,.25));
 }
@@ -117,28 +113,28 @@ html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6 {
   	  text-indent: -9999em;
   	  display: inline-block;
     	border: 0;
-    	width: 50px;
-    	height: 50px;
-    	background: url("../images/logo-spaceninja-100.png") no-repeat;
-    	background-size: 50px;
+    	width: 75px;
+    	height: 75px;
+    	background: url("../images/logo-spaceninja-75.png") no-repeat;
+    	background-size: 75px;
   	}
   	&:before, &:after {
   	  position: absolute;
-  	  top: 0;
-  	  opacity: 0;
-    	@include transition(all .5s ease);
+  	  top: 15px;
+  	  color: #fff;
+    	@include transition(color .5s ease);
   	}
   	&:before {
   	  content: 'SPACE';
-  	  right: 60px;
+  	  right: 80px;
   	}
   	&:after {
   	  content: 'NINJA';
-  	  left: 60px;
+  	  left: 80px;
   	}
   	&:hover:before, &:hover:after,
   	&:focus:before, &:focus:after {
-  	  opacity: 1;
+  	  color: #000;
   	}
   }
 	#skip-link {
@@ -153,53 +149,52 @@ html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6 {
 }
 .is_touch_device #site-header #site-title:before,
 .is_touch_device #site-header #site-title:after {
-  opacity: 1;
+  color: #000;
 }
 
 
 /* Navigation ------------------------------------------------------------- */
 #navigation {
-  margin-bottom: 5em;
-  font-size: .875em; // 14px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  font-size: .9em;
   line-height: 1;
   font-family: $headlinefontstack;
   text-transform: uppercase;
   letter-spacing: 1px;
   color: #999;
   text-align: center;
+  opacity: .25;
   ul {
     list-style: none;
     margin: 0;
     li {
-      display: inline;
+      display: inline-block;
       margin: 0;
       padding: 0;
       background: none;
-      &:before {
-        content: '';
-        padding-right: .5em;
-        display: inline-block;
-        width: 9px;
-        height: 9px;
-        background: url("../images/bullet-9px.png") no-repeat;
-        vertical-align: baseline;
-        position: relative;
-        bottom: .15em;
-        //opacity: .5;
-      }
-      &:first-child:before {
-        display: none;
-      }
       a {
+        display: block;
         border: 0;
         color: $base1;
+        padding: .25em .5em;
+        border-top: 5px solid #fff;
       	@include transition(all .5s ease);
         &:hover, &:focus {
+          border-color: $magenta;
           color: $base00;
         }
       }
     }
   }
+  &:hover, &:focus {
+    opacity: 1;
+  }
+}
+.is_touch_device #navigation {
+  color: #000;
 }
 
 /* Content ---------------------------------------------------------------- */
@@ -242,12 +237,32 @@ em, i, cite {
   margin: 1.5em 0;
 }
 blockquote {
-  background: $base3;
+  background: #ffc;
   color: $base00;
   padding: .75em 1em;
   font-style: italic;
-  margin: 1em 0;
-  @include roundcorners(.5em);
+  margin: 1em -.66em;
+  position:relative;
+  @include boxshadow(0 1px 5px rgba(0, 0, 0, 0.1));
+  &:before,
+  &:after {
+    content:"";
+    position:absolute;
+    z-index:-1;
+    bottom:20px;
+    left:10px;
+    width:50%;
+    height:20%;
+    max-width:300px;
+    max-height:100px;
+    @include boxshadow(0 15px 10px rgba(0, 0, 0, 0.2));
+    @include transform(rotate(-3deg));
+  }
+  &:after {
+    right:10px;
+    left:auto;
+    @include transform(rotate(3deg));
+  }
   p {
     margin: .75em 0 0;
     &:first-child {
@@ -345,6 +360,7 @@ aside, .sidenote {
 .post-title {
   font-size: 3em; // 48px
   letter-spacing: .025em;
+  line-height: 1.15;
   a {
     border: 0;
     font-style: normal;
@@ -370,11 +386,12 @@ body .page {
       left: 0;
       margin: 0;
       a {
-        display: block;
+        display: inline-block;
         height: 2em;
         line-height: 2em;
       	position: relative;
         font-size: .688em; // 11px;
+        font-size: 11px;
         margin: 0;
         padding: 0 .75em;
       	background: $base2;
@@ -386,11 +403,11 @@ body .page {
           content: "";
           display: block;
           position: absolute;
-          bottom: -.5em;
+          bottom: -5px;
           left: 1em;
           width: 0;
           height: 0;
-          border: .5em solid transparent;
+          border: 5px solid transparent;
           border-top-color: $base2;
           border-bottom: 0;
         }
@@ -408,6 +425,7 @@ body .page {
         line-height: 2em;
       	position: relative;
         font-size: .688em; // 11px;
+        font-size: 11px;
         margin: 0;
         padding: 0 .75em;
       	background: $base2;
@@ -419,11 +437,11 @@ body .page {
           content: "";
           display: block;
           position: absolute;
-          bottom: -.5em;
+          bottom: -5px;
           left: 1em;
           width: 0;
           height: 0;
-          border: .5em solid transparent;
+          border: 5px solid transparent;
           border-top-color: $base2;
           border-bottom: 0;
         }
@@ -443,6 +461,7 @@ body .page {
         line-height: 2em;
         position: relative;
         font-size: .688em; // 11px;
+        font-size: 11px;
         margin: 0 0 5px 10px;
         padding: 0 .75em 0 .33em;
         background: $base2;
@@ -839,7 +858,23 @@ body .page {
 .post img,
 .post video,
 .post object {
+  display: block;
   max-width: 100%;
+  margin: 0 auto;
+  &.floatleft,
+  &.float_left,
+  &.alignleft {
+    margin: .25em 1em .5em 0;
+  }
+  &.floatright,
+  &.float_right,
+  &.alignright {
+    margin: .25em 0 .5em 1em;
+  }
+  &.alignnone,
+  &.aligncenter {
+  	margin: .25em auto 1em;
+  }
 }
 .post img {
   display: block;
@@ -848,6 +883,11 @@ body .page {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  &.wp-smiley {
+    display: inline;
+    padding: 0;
+    background: none;
+  }
 }
 .gallery {
   dl, dt, dd {
@@ -1155,6 +1195,10 @@ button {
 	font-size: smaller;
 	text-align: center;
 	padding: 1em 5% 0;
+	p {
+	  display: inline;
+	  white-space: nowrap;
+	}
 	ul {
 	  list-style: none;
 	  li {
