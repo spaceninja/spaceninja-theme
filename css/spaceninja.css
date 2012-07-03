@@ -262,6 +262,9 @@ blockquote {
   blockquote cite {
     font-size: smaller; }
 
+#content .syntaxhighlighter * {
+  font-family: Inconsolata, Consolas, Monaco, "Andale Mono", monospace !important; }
+
 /* Compositional Elements ------------------------------------------------- */
 .kicker, .leadtxt {
   font-size: 1.25em; }
@@ -319,12 +322,15 @@ aside, .sidenote {
   .footnote li {
     margin: 0 0 1em 0; }
 
-.caption, .wp-caption-text {
+figcaption, .caption, .wp-caption-text {
   font-size: smaller;
   font-style: italic;
   color: #666; }
-  .caption a, .wp-caption-text a {
+  figcaption a, .caption a, .wp-caption-text a {
     color: #666; }
+
+figcaption {
+  text-align: center; }
 
 .kern {
   letter-spacing: -0.1em; }
@@ -793,25 +799,25 @@ body .page {
       padding-top: 1em; }
       #comments .commentlist li li {
         margin-left: 55px; }
-  #comments .comment article {
+  #comments li article {
     position: relative;
     padding-left: 55px; }
-    #comments .comment article .avatar {
+    #comments li article .avatar {
       position: absolute;
       top: 0;
       left: 0; }
-    #comments .comment article h3 {
+    #comments li article h3 {
       font-size: 1em;
       font-weight: bold; }
-      #comments .comment article h3 a {
+      #comments li article h3 a {
         border-color: #eeeeee; }
-    #comments .comment article footer {
+    #comments li article footer {
       font-size: smaller;
       color: #999999; }
-      #comments .comment article footer a {
+      #comments li article footer a {
         color: #999999;
         border-color: #eeeeee; }
-  #comments .comment.bypostauthor > article h3:after {
+  #comments li.bypostauthor > article h3:after {
     content: 'post author';
     display: inline-block;
     background: #dddddd;

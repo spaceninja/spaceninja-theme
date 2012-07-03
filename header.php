@@ -56,6 +56,7 @@ smy+:`    .:y: sMMMMMMN-  `dMMMMMMh`-y:.    `:+ymh
 <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
 <link rel="stylesheet" href="<?php echo $stylesheetdir; ?>/css/reset.css" />
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Inconsolata" />
 <link rel="stylesheet" href="<?php echo $stylesheetdir; ?>/fonts/bariol/stylesheet.css" />
 <link rel="stylesheet" href="<?php echo $stylesheetdir; ?>/css/spaceninja.css" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />

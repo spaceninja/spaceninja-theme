@@ -114,6 +114,14 @@ dt {
 }
 
 /* margins */
+h1, h2, h3, h4, h5, h6, p, table, ul, ol, dl, dd, pre {
+  /* intelligent spacing to let headlines sit on top of following elements */
+  margin: .25em 0 1em;
+}
+ul ul, ol ol {
+  /* then turn off that spacing on nested lists */
+  margin: 0;
+}
 ul li {
   margin-left: 1.5em;
 }
@@ -128,14 +136,6 @@ dd {
 }
 blockquote {
   margin-left: 1.5em;
-}
-h1, h2, h3, h4, h5, h6, p, table, ul, ol, dl, pre {
-  /* intelligent spacing to let headlines sit on top of following elements */
-  margin: .25em 0 1em;
-}
-ul ul, ol ol {
-  /* then turn off that spacing on nested lists */
-  margin: 0;
 }
 sup, sub {
   /* use rel position to adjust super and subscripts */

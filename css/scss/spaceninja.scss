@@ -276,6 +276,9 @@ blockquote {
     font-size: smaller;
   }
 }
+#content .syntaxhighlighter * {
+  font-family: Inconsolata, Consolas, Monaco, "Andale Mono", monospace !important;
+}
 
 /* Compositional Elements ------------------------------------------------- */
 .kicker, .leadtxt {
@@ -341,13 +344,16 @@ aside, .sidenote {
     margin: 0 0 1em 0;
   }
 }
-.caption, .wp-caption-text {
+figcaption, .caption, .wp-caption-text {
   font-size: smaller;
   font-style: italic;
   color: #666;
   a {
     color: #666;
   }
+}
+figcaption {
+  text-align: center;
 }
 .kern {
   letter-spacing: -.1em;
@@ -793,7 +799,7 @@ body .page {
       }
     }
   }
-  .comment {
+  li {
     article {
       position: relative;
       padding-left: 55px;
