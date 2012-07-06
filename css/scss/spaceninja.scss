@@ -42,7 +42,9 @@ a:hover, a:focus, a:active {
 /* Page ------------------------------------------------------------------- */
 html, body {
   height: 100%;
-  margin: 0 1%;
+}
+body {
+  margin: 0 2%;
 }
 html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6 {
   -webkit-text-size-adjust:none;
@@ -372,8 +374,9 @@ figcaption {
     font-style: normal;
   }
 }
-body .post,
-body .page {
+article.post,
+article.page {
+  position: relative;
   margin-bottom: 5em;
   .post-content {
     @include clearfix;
@@ -503,13 +506,71 @@ body .page {
       }
     }
   }
+  &:hover, &:focus {
+    .byline time,
+    .byline a {
+      opacity: 1;
+    }
+  }
 }
 .byline {
-  font-size: smaller;
+  position: relative;
   color: $base1;
   a {
     color: $base1;
     border-color: $base3;
+    &:hover, &:focus {
+      color: $base00;
+    }
+  }
+  time {
+    position: absolute;
+    top: 1.5em;
+    left: 0;
+    line-height: 1;
+    text-align: center;
+    opacity: .33;
+    text-transform: uppercase;
+    .month {
+      display: block;
+      font-size: .9em;
+    }
+    .date {
+      display: block;
+      font-size: 1.5em;
+      margin: .1em 0;
+    }
+    .year {
+      display: block;
+      font-size: .7em;
+    }
+    @media only screen and (max-width: 830px) {
+      position: static;
+      text-align: left;
+      opacity: 1;
+      text-transform: none;
+      .month, .date, .year {
+        display: inline;
+        margin: 0;
+        font-size: smaller;
+      }
+    }
+  }
+  .edit-link {
+    position: absolute;
+    top: 1em;
+    left: -1.5em;
+    a {
+      display: block;
+      width: 1.5em;
+      height: 1.5em;
+      min-width: 16px;
+      min-height: 16px;
+      text-indent: -9999em;
+      background: url("../images/cog.png") center no-repeat;
+      border: 0;
+      opacity: 0;
+    }
   }
 }
 .post-nav {

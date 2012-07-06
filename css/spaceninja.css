@@ -44,8 +44,10 @@ a:hover, a:focus, a:active {
 
 /* Page ------------------------------------------------------------------- */
 html, body {
-  height: 100%;
-  margin: 0 1%; }
+  height: 100%; }
+
+body {
+  margin: 0 2%; }
 
 html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6 {
   -webkit-text-size-adjust: none; }
@@ -347,43 +349,44 @@ figcaption {
     border: 0;
     font-style: normal; }
 
-body .post,
-body .page {
+article.post,
+article.page {
+  position: relative;
   margin-bottom: 5em; }
-  body .post .post-content,
-  body .page .post-content {
+  article.post .post-content,
+  article.page .post-content {
     zoom: 1;
     margin: 1.5em 0; }
-    body .post .post-content:after,
-    body .page .post-content:after {
+    article.post .post-content:after,
+    article.page .post-content:after {
       content: ".";
       display: block;
       height: 0;
       clear: both;
       visibility: hidden; }
-  body .post footer,
-  body .page footer {
+  article.post footer,
+  article.page footer {
     position: relative;
     border-top: 1px solid #dddddd;
     padding-top: 1em;
     color: #666;
     clear: both;
     zoom: 1; }
-    body .post footer:after,
-    body .page footer:after {
+    article.post footer:after,
+    article.page footer:after {
       content: ".";
       display: block;
       height: 0;
       clear: both;
       visibility: hidden; }
-    body .post footer .comments,
-    body .page footer .comments {
+    article.post footer .comments,
+    article.page footer .comments {
       position: absolute;
       top: 1em;
       left: 0;
       margin: 0; }
-      body .post footer .comments a,
-      body .page footer .comments a {
+      article.post footer .comments a,
+      article.page footer .comments a {
         display: inline-block;
         height: 2em;
         line-height: 2em;
@@ -402,8 +405,8 @@ body .page {
         -moz-transition: none;
         -o-transition: none;
         transition: none; }
-        body .post footer .comments a:before,
-        body .page footer .comments a:before {
+        article.post footer .comments a:before,
+        article.page footer .comments a:before {
           content: "";
           display: block;
           position: absolute;
@@ -414,16 +417,16 @@ body .page {
           border: 5px solid transparent;
           border-top-color: #dddddd;
           border-bottom: 0; }
-        body .post footer .comments a:hover, body .post footer .comments a:focus,
-        body .page footer .comments a:hover,
-        body .page footer .comments a:focus {
+        article.post footer .comments a:hover, article.post footer .comments a:focus,
+        article.page footer .comments a:hover,
+        article.page footer .comments a:focus {
           background: #999999;
           color: #eeeeee; }
-        body .post footer .comments a:hover:before,
-        body .page footer .comments a:hover:before {
+        article.post footer .comments a:hover:before,
+        article.page footer .comments a:hover:before {
           border-top-color: #999999; }
-      body .post footer .comments span,
-      body .page footer .comments span {
+      article.post footer .comments span,
+      article.page footer .comments span {
         display: block;
         height: 2em;
         line-height: 2em;
@@ -442,8 +445,8 @@ body .page {
         -moz-transition: none;
         -o-transition: none;
         transition: none; }
-        body .post footer .comments span:before,
-        body .page footer .comments span:before {
+        article.post footer .comments span:before,
+        article.page footer .comments span:before {
           content: "";
           display: block;
           position: absolute;
@@ -454,17 +457,17 @@ body .page {
           border: 5px solid transparent;
           border-top-color: #dddddd;
           border-bottom: 0; }
-    body .post footer .taxonomy,
-    body .page footer .taxonomy {
+    article.post footer .taxonomy,
+    article.page footer .taxonomy {
       line-height: 1;
       float: right;
       margin: 0 0 0 10em;
       text-align: right; }
-      body .post footer .taxonomy .label,
-      body .page footer .taxonomy .label {
+      article.post footer .taxonomy .label,
+      article.page footer .taxonomy .label {
         display: none; }
-      body .post footer .taxonomy a,
-      body .page footer .taxonomy a {
+      article.post footer .taxonomy a,
+      article.page footer .taxonomy a {
         display: inline-block;
         height: 2em;
         line-height: 2em;
@@ -486,8 +489,8 @@ body .page {
         -moz-transition: none;
         -o-transition: none;
         transition: none; }
-        body .post footer .taxonomy a:before,
-        body .page footer .taxonomy a:before {
+        article.post footer .taxonomy a:before,
+        article.page footer .taxonomy a:before {
           content: "";
           display: block;
           position: absolute;
@@ -498,26 +501,77 @@ body .page {
           border: 1em solid transparent;
           border-right-color: #dddddd;
           border-left: 0; }
-        body .post footer .taxonomy a:hover, body .post footer .taxonomy a:focus,
-        body .page footer .taxonomy a:hover,
-        body .page footer .taxonomy a:focus {
+        article.post footer .taxonomy a:hover, article.post footer .taxonomy a:focus,
+        article.page footer .taxonomy a:hover,
+        article.page footer .taxonomy a:focus {
           background: #999999;
           color: #eeeeee; }
-        body .post footer .taxonomy a:hover:before,
-        body .page footer .taxonomy a:hover:before {
+        article.post footer .taxonomy a:hover:before,
+        article.page footer .taxonomy a:hover:before {
           border-right-color: #999999; }
-      body .post footer .taxonomy:after,
-      body .page footer .taxonomy:after {
+      article.post footer .taxonomy:after,
+      article.page footer .taxonomy:after {
         content: '';
         display: inline-block;
         width: .25em; }
+  article.post:hover .byline time,
+  article.post:hover .byline a, article.post:focus .byline time, article.post:focus .byline a,
+  article.page:hover .byline time,
+  article.page:hover .byline a,
+  article.page:focus .byline time,
+  article.page:focus .byline a {
+    opacity: 1; }
 
 .byline {
-  font-size: smaller;
+  position: relative;
   color: #999999; }
   .byline a {
     color: #999999;
     border-color: #eeeeee; }
+    .byline a:hover, .byline a:focus {
+      color: #333333; }
+  .byline time {
+    position: absolute;
+    top: 1.5em;
+    left: 0;
+    line-height: 1;
+    text-align: center;
+    opacity: .33;
+    text-transform: uppercase; }
+    .byline time .month {
+      display: block;
+      font-size: .9em; }
+    .byline time .date {
+      display: block;
+      font-size: 1.5em;
+      margin: .1em 0; }
+    .byline time .year {
+      display: block;
+      font-size: .7em; }
+    @media only screen and (max-width: 830px) {
+      .byline time {
+        position: static;
+        text-align: left;
+        opacity: 1;
+        text-transform: none; }
+        .byline time .month, .byline time .date, .byline time .year {
+          display: inline;
+          margin: 0;
+          font-size: smaller; } }
+  .byline .edit-link {
+    position: absolute;
+    top: 1em;
+    left: -1.5em; }
+    .byline .edit-link a {
+      display: block;
+      width: 1.5em;
+      height: 1.5em;
+      min-width: 16px;
+      min-height: 16px;
+      text-indent: -9999em;
+      background: url("../images/cog.png") center no-repeat;
+      border: 0;
+      opacity: 0; }
 
 .post-nav {
   text-align: center;

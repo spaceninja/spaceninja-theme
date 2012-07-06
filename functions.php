@@ -70,16 +70,12 @@ function flatline_post_header() {
  * Override the default post byline
  */
 function flatline_posted_on() {
-	printf( __( 'By %1$s on %2$s', 'flatline' ),
-		sprintf( '<a href="%1$s">%2$s</a>',
-			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-			esc_html( get_the_author() )
-		),
-		sprintf( '<time datetime="%1$s" pubdate><a href="%2$s">%3$s</a></time>',
-			esc_attr( get_the_date( 'c' ) ),
-			get_permalink(),
-			get_the_date()
-		)
+	printf( '<time datetime="%1$s" pubdate><a href="%2$s"><span class="month">%3$s</span> <span class="date">%4$s</span> <span class="year">%5$s</span></a></time>',
+		esc_attr( get_the_date( 'c' ) ),
+		get_permalink(),
+		get_the_date( 'M' ),
+		get_the_date( 'd' ),
+		get_the_date( 'Y' )
 	);
-	edit_post_link( __( 'Edit', 'flatline' ), ' | <span class="edit-link">', '</span>' );
+	edit_post_link( 'Edit', '<span class="edit-link">', '</span>' );
 }
