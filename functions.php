@@ -32,14 +32,6 @@ function flatline_scripts() {
 }
 
 /**
- * Override taxonomy markup
- */
-function flatline_posted_in() {
-	the_category( ' ' );
-	if ( get_the_tags() ) the_tags( ' ',' ' );
-}
-
-/**
  * Disable comments on pages
  */
 function flatline_page_comments() {
@@ -64,6 +56,14 @@ function flatline_post_header() {
 			</div>
 		<?php }
 	}
+}
+
+/**
+ * Override taxonomy markup
+ */
+function flatline_posted_in() {
+	the_category( ' ' );
+	if ( get_the_tags() ) the_tags( ' ',' ' );
 }
 
 /**

@@ -54,10 +54,8 @@ smy+:`    .:y: sMMMMMMN-  `dMMMMMMh`-y:.    `:+ymh
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="initial-scale=1.0">
 <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="stylesheet" href="<?php echo $stylesheetdir; ?>/css/fonts.css" />
 <link rel="stylesheet" href="<?php echo $stylesheetdir; ?>/css/reset.css" />
-<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400" />
-<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Inconsolata" />
-<link rel="stylesheet" href="<?php echo $stylesheetdir; ?>/fonts/bariol/stylesheet.css" />
 <link rel="stylesheet" href="<?php echo $stylesheetdir; ?>/css/spaceninja.css" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 <?php
@@ -71,7 +69,7 @@ smy+:`    .:y: sMMMMMMN-  `dMMMMMMh`-y:.    `:+ymh
 	<div id="page">
 
 		<header id="site-header" role="banner">
-			<h1 id="site-title"><a href="/">S<span class="p">p</span><span class="a">a</span>ce Ninja</a></h1>
+			<h1 id="site-title"><a href="/">Space Ninja</a></h1>
 			<p id='skip-link'><em><a href="#navigation">Skip to Navigation</a> &darr;</em></p>
 		</header>
 
