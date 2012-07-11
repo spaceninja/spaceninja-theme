@@ -69,13 +69,17 @@ html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6 {
   margin-left: auto;
   margin-right: auto; }
   #content .post-content,
+  #content .old-post,
   #content .author-bio,
   #content .post footer,
   #content #comments,
   #content #respond {
     max-width: 620px;
     margin-left: auto;
-    margin-right: auto; }
+    margin-right: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
 
 @media only screen and (min-width: 1344px) and (min-height: 700px) {
   body {
@@ -906,7 +910,8 @@ article.page {
 .post video,
 .post object {
   display: block;
-  max-width: 100%;
+  max-width: 100% !important;
+  max-height: 100% !important;
   margin: 0 auto; }
   .post img.floatleft, .post img.float_left, .post img.alignleft,
   .post video.floatleft,
@@ -992,7 +997,7 @@ table {
    * These alert styles lifted from Twitter Bootstrap: http://twitter.github.com/bootstrap/
    */
   padding: .5em 1em;
-  margin-bottom: 1em;
+  margin: 1em 0;
   border-width: 1px;
   border-style: solid;
   -moz-border-radius: 0.25em;
@@ -1060,6 +1065,26 @@ table {
   .info p,
   .info ul {
     margin: 0; }
+  .alert a,
+  .error a,
+  .notice a,
+  .warning a,
+  .success a,
+  .info a {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.25); }
+    .alert a:hover, .alert a:focus,
+    .error a:hover,
+    .error a:focus,
+    .notice a:hover,
+    .notice a:focus,
+    .warning a:hover,
+    .warning a:focus,
+    .success a:hover,
+    .success a:focus,
+    .info a:hover,
+    .info a:focus {
+      border-color: white; }
   .alert label,
   .error label,
   .notice label,
@@ -1112,6 +1137,11 @@ table {
   /* W3C */
   border-color: #eedc94 #eedc94 #e4c652;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25); }
+  .notice a, .warning a {
+    color: #404040;
+    border-color: rgba(64, 64, 64, 0.25); }
+    .notice a:hover, .notice a:focus, .warning a:hover, .warning a:focus {
+      border-color: #404040; }
 
 .alert, .error {
   color: #fff;
