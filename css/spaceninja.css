@@ -905,13 +905,18 @@ article.page {
     font-size: 1.66em; }
   #respond .logged-in-as {
     margin-top: 0; }
+  #respond .actions {
+    text-align: left; }
 
 .post img,
 .post video,
-.post object {
+.post object,
+.page img,
+.page video,
+.page object {
   display: block;
   max-width: 100% !important;
-  max-height: 100% !important;
+  max-height: auto !important;
   margin: 0 auto; }
   .post img.floatleft, .post img.float_left, .post img.alignleft,
   .post video.floatleft,
@@ -919,7 +924,16 @@ article.page {
   .post video.alignleft,
   .post object.floatleft,
   .post object.float_left,
-  .post object.alignleft {
+  .post object.alignleft,
+  .page img.floatleft,
+  .page img.float_left,
+  .page img.alignleft,
+  .page video.floatleft,
+  .page video.float_left,
+  .page video.alignleft,
+  .page object.floatleft,
+  .page object.float_left,
+  .page object.alignleft {
     margin: .25em 1em .5em 0; }
   .post img.floatright, .post img.float_right, .post img.alignright,
   .post video.floatright,
@@ -927,23 +941,39 @@ article.page {
   .post video.alignright,
   .post object.floatright,
   .post object.float_right,
-  .post object.alignright {
+  .post object.alignright,
+  .page img.floatright,
+  .page img.float_right,
+  .page img.alignright,
+  .page video.floatright,
+  .page video.float_right,
+  .page video.alignright,
+  .page object.floatright,
+  .page object.float_right,
+  .page object.alignright {
     margin: .25em 0 .5em 1em; }
   .post img.alignnone, .post img.aligncenter,
   .post video.alignnone,
   .post video.aligncenter,
   .post object.alignnone,
-  .post object.aligncenter {
+  .post object.aligncenter,
+  .page img.alignnone,
+  .page img.aligncenter,
+  .page video.alignnone,
+  .page video.aligncenter,
+  .page object.alignnone,
+  .page object.aligncenter {
     margin: .25em auto 1em; }
-
-.post img {
+.post img,
+.page img {
   display: block;
   background: #ccc;
   padding: 10px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
-  .post img.wp-smiley {
+  .post img.wp-smiley,
+  .page img.wp-smiley {
     display: inline;
     padding: 0;
     background: none; }
@@ -1118,7 +1148,7 @@ table {
   border-color: #57a957 #57a957 #3d773d;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25); }
 
-.notice, .warning {
+.notice, .warning, .alert {
   color: #404040;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
   background: #f5e5aa;
@@ -1137,13 +1167,13 @@ table {
   /* W3C */
   border-color: #eedc94 #eedc94 #e4c652;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25); }
-  .notice a, .warning a {
+  .notice a, .warning a, .alert a {
     color: #404040;
     border-color: rgba(64, 64, 64, 0.25); }
-    .notice a:hover, .notice a:focus, .warning a:hover, .warning a:focus {
+    .notice a:hover, .notice a:focus, .warning a:hover, .warning a:focus, .alert a:hover, .alert a:focus {
       border-color: #404040; }
 
-.alert, .error {
+.error {
   color: #fff;
   background: #d94d48;
   /* Old browsers */
@@ -1291,6 +1321,9 @@ form {
     form .field_with_errors textarea {
       border: 1px solid #dc322f;
       color: #dc322f; }
+
+.actions {
+  text-align: center; }
 
 a.button,
 input[type="reset"],

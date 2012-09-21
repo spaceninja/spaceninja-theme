@@ -925,40 +925,46 @@ article.page {
   .logged-in-as {
     margin-top: 0;
   }
-}
-.post img,
-.post video,
-.post object {
-  display: block;
-  max-width: 100% !important;
-  max-height: 100% !important;
-  margin: 0 auto;
-  &.floatleft,
-  &.float_left,
-  &.alignleft {
-    margin: .25em 1em .5em 0;
-  }
-  &.floatright,
-  &.float_right,
-  &.alignright {
-    margin: .25em 0 .5em 1em;
-  }
-  &.alignnone,
-  &.aligncenter {
-  	margin: .25em auto 1em;
+  .actions {
+    text-align: left;
   }
 }
-.post img {
-  display: block;
-  background: #ccc;
-  padding: 10px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  &.wp-smiley {
-    display: inline;
-    padding: 0;
-    background: none;
+.post,
+.page {
+  img,
+  video,
+  object {
+    display: block;
+    max-width: 100% !important;
+    max-height: auto !important;
+    margin: 0 auto;
+    &.floatleft,
+    &.float_left,
+    &.alignleft {
+      margin: .25em 1em .5em 0;
+    }
+    &.floatright,
+    &.float_right,
+    &.alignright {
+      margin: .25em 0 .5em 1em;
+    }
+    &.alignnone,
+    &.aligncenter {
+    	margin: .25em auto 1em;
+    }
+  }
+  img {
+    display: block;
+    background: #ccc;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    &.wp-smiley {
+      display: inline;
+      padding: 0;
+      background: none;
+    }
   }
 }
 .gallery {
@@ -1067,7 +1073,7 @@ table {
   border-color: #57a957 #57a957 #3d773d;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
 }
-.notice, .warning {
+.notice, .warning, .alert {
   color: #404040;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
   @include vertical-gradient(#fceec1, #eedc94); // yellow
@@ -1081,7 +1087,7 @@ table {
     }
   }
 }
-.alert, .error {
+.error {
   color: #fff;
   @include vertical-gradient(#ee5f5b, #c43c35); // red
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
@@ -1222,6 +1228,9 @@ form {
       color: $red;
     }
   }
+}
+.actions {
+  text-align: center;
 }
 a.button,
 input[type="reset"],
