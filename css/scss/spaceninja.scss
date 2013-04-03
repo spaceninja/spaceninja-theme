@@ -1,3 +1,4 @@
+@import 'bourbon/bourbon';
 @import "variables";
 
 /*
@@ -20,23 +21,23 @@ html * {
 body {
 	background: #e9c287 url("../images/purty_wood.jpg");
 	color: $base00;
-	font: 112.5%/1.66 $fontstack; // 18px
+	font: 112.5%/1.6666 $fontstack; // 18px
 	margin: 0;
-	@include transition(font-size .5s ease);
-}
-h1, h2, h3, h4, h5, h6 {
-  color: $base01;
 }
 a {
 	color: $tardis;
+  color: #2980B9;
 	text-decoration: none;
 	border-bottom: 1px solid $base2;
 	border-color: rgba(0,0,0,.2);
-	@include transition(all .5s ease);
+	@include transition(color .5s ease, background-color .5s ease);
 }
 a:hover, a:focus, a:active {
 	background-color: $base3;
 	background-color: rgba(64,64,64,.1);
+  background-color: #EEFF26; // highlighter yellow
+  background-color: rgba(238,255,38,.5); // highlighter yellow
+  color: #111;
 }
 
 /* Page ------------------------------------------------------------------- */
@@ -46,9 +47,6 @@ html, body {
 body {
   margin: 0 2%;
 }
-html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6 {
-  -webkit-text-size-adjust:none;
-}
 #page {
   min-height: 100%;
   position: relative;
@@ -56,11 +54,12 @@ html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6 {
   max-width: 1344px;
   margin: 0 auto;
   padding: 70px 0 50px;
-  background: #fff;
-  @include boxshadow(0 0 15px rgba(0,0,0,.25));
+  background: #fff url("../images/bg-paper.png");
+  @include box-shadow(0 0 15px rgba(0,0,0,.25));
 }
 #content {
-  max-width: 720px;
+  // outline: 1px solid rgba(255,0,0,.1);
+  max-width: 50em;
   margin-left: auto;
   margin-right: auto;
   .post-content,
@@ -69,7 +68,8 @@ html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6 {
   .post footer,
   #comments,
   #respond {
-    max-width: 620px;
+    // outline: 1px solid rgba(255,0,0,.1);
+    max-width: 33em;
     margin-left: auto;
     margin-right: auto;
     -webkit-box-sizing: border-box;
@@ -121,7 +121,7 @@ html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6 {
     	border: 0;
     	width: 75px;
     	height: 75px;
-    	background: url("../images/logo-spaceninja-75.png") no-repeat;
+    	background: url("../images/logo-spaceninja-150.png") no-repeat;
     	background-size: 75px;
   	}
   	&:before, &:after {
@@ -187,7 +187,6 @@ html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6 {
         color: $base1;
         padding: .25em .5em;
         border-top: 5px solid #fff;
-      	@include transition(all .5s ease);
         &:hover, &:focus {
           border-color: $magenta;
           color: $base00;
@@ -207,7 +206,7 @@ html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6 {
 h1, h2 ,h3, h4, h5, h6 {
   font-family: $headlinefontstack;
   line-height: 1.1;
-  margin: 0 0 5px;
+  margin: 1em 0 .25em;
 	text-rendering: optimizeLegibility;
 	font-weight: normal;
 	strong, em {
@@ -217,19 +216,19 @@ h1, h2 ,h3, h4, h5, h6 {
 	}
 }
 h1 {
-	font-size: 2.5em;
+	font-size: 3.3333em;
 }
 h2 {
-	font-size: 2em;
+	font-size: 2.6667em;
 }
 h3 {
-	font-size: 1.66em;
+	font-size: 2em;
 }
 h4 {
-	font-size: 1.33em;
+	font-size: 1.3333em;
 }
 h5, h6 {
-  font-size: 1.25em;
+  font-size: 1.1667em;
 }
 strong, b {
   font-weight: bold;
@@ -238,18 +237,33 @@ em, i, cite {
   font-style: italic;
 }
 #content hr {
-  border: 1px solid $base2;
-  border-width: 1px 0 0;
+  font-weight: 700;
+  font-size: 2em;
+  line-height: 0;
+  text-align: center;
   margin: 1.5em 0;
+  border: 0;
+  padding: 0;
+  height: 0;
+  clear: both;
+  display: block;
+  &::after {
+    content: "···";
+    color: #bbb;
+    letter-spacing: 1em;
+    padding-left: 1em;
+    height: 0;
+  }
 }
 blockquote {
-  background: #ffc;
+  background: #FFF7BF;
+  @include linear-gradient(#FFF7BF, #FAF2BB);
   color: $base00;
   padding: .75em 1em;
   font-style: italic;
   margin: 1em -.66em;
   position:relative;
-  @include boxshadow(0 1px 5px rgba(0, 0, 0, 0.1));
+  @include box-shadow(0 1px 5px rgba(0, 0, 0, 0.1));
   &:before,
   &:after {
     content:"";
@@ -261,7 +275,7 @@ blockquote {
     height:20%;
     max-width:300px;
     max-height:100px;
-    @include boxshadow(0 15px 10px rgba(0, 0, 0, 0.2));
+    @include box-shadow(0 15px 10px rgba(0, 0, 0, 0.2));
     @include transform(rotate(-3deg));
   }
   &:after {
@@ -285,6 +299,44 @@ blockquote {
 #content .syntaxhighlighter * {
   font-family: Inconsolata, Consolas, Monaco, "Andale Mono", monospace !important;
 }
+code {
+  border-radius: .15em;
+  background: #F8F8F8;
+  background: rgba(0,0,0,.01);
+  border: 1px solid #DDD;
+  color: #4271ae;
+  font-size: 1em;
+  padding: .15em .33em;
+}
+pre {
+  border-radius: .25em;
+  background: #F8F8F8;
+  background: rgba(0,0,0,.01);
+  border: 1px solid #DDD;
+  padding: .5em 1em;
+  code {
+    border-radius: 0;
+    background: none;
+    border: 0;
+    padding: 0;
+  }
+}
+var {
+  color: #C0392B;
+}
+del, s {
+  @include transition(color .5s ease);
+  background-color: $base00;
+  text-decoration: strikethrough;
+  &:hover {
+    color: #eee;
+  }
+}
+ins, mark {
+  text-decoration: none;
+  background-color: #EEFF26; // highlighter yellow
+  background-color: rgba(238,255,38,.5); // highlighter yellow
+}
 
 /* Compositional Elements ------------------------------------------------- */
 .kicker, .leadtxt {
@@ -298,15 +350,6 @@ sup, sub {
 }
 ol li {
   margin-left: 1.5em;
-}
-ul li {
-  list-style: none;
-  padding-left: 16px;
-  background: url("../images/bullet-8px.png") no-repeat left .5em;
-  margin-left: 0;
-  li {
-    margin-left: 1em;
-  }
 }
 aside, .sidenote {
   float: right;
@@ -342,6 +385,7 @@ aside, .sidenote {
   font-style: italic;
 }
 .footnote {
+  font-family: $captionfontstack;
   border-top: 1px solid $base2;
   font-size: smaller;
   margin-top: 2em;
@@ -350,7 +394,17 @@ aside, .sidenote {
     margin: 0 0 1em 0;
   }
 }
+figure {
+  margin: 1.5em 0;
+  p {
+    margin: .75em 0 .25em;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
 figcaption, .caption, .wp-caption-text {
+  font-family: $captionfontstack;
   font-size: smaller;
   font-style: italic;
   color: #666;
@@ -367,15 +421,25 @@ figcaption {
 
 /* WordPress Styles ------------------------------------------------------- */
 #page-header {
-  margin-bottom: 3em;
+  .page-title {
+    font-size: 2.6667em;
+    padding-bottom: 1.25em;
+    margin-bottom: 1.25em;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+  }
 }
 .post-title {
-  font-size: 3em; // 48px
-  letter-spacing: .025em;
+  margin: 0;
   line-height: 1.15;
+  text-align: center;
   a {
+    color: #444;
     border: 0;
     font-style: normal;
+    &:hover, &:focus {
+      color: #111;
+    }
   }
 }
 article.post,
@@ -410,7 +474,7 @@ article.page {
       	background: $base2;
       	color: $base00;
         border: 0;
-      	@include roundcorners(4px);
+      	border-radius: 4px;
       	@include transition(none);
         &:before {
           content: "";
@@ -444,7 +508,7 @@ article.page {
       	background: $base2;
       	color: $base00;
         border: 0;
-      	@include roundcorners(4px);
+      	border-radius: 4px;
       	@include transition(none);
         &:before {
           content: "";
@@ -480,8 +544,8 @@ article.page {
         background: $base2;
       	color: $base00;
         border: 0;
-        @include roundcorner(bottom, right, 4px);
-        @include roundcorner(top, right, 4px);
+        border-bottom-right-radius: 4px;
+        border-top-right-radius: 4px;
       	@include transition(none);
         &:before {
           content: "";
@@ -592,7 +656,7 @@ article.page {
     text-indent: -9999em;
     background-color: $base2;
     border: 0;
-    @include roundcorners(1em);
+    border-radius: 1em;
   }
   a:hover, a:focus, span {
     background-color: $base1;
@@ -706,7 +770,7 @@ article.page {
     	background: $base2;
     	color: $base00;
       border: 0;
-    	@include roundcorners(4px);
+    	border-radius: 4px;
     	@include transition(none);
     	&:hover, &:focus {
         background: $base1;
@@ -723,8 +787,8 @@ article.page {
     }
   }
   .previous a {
-    @include roundcorner(top, left, 0);
-    @include roundcorner(bottom, left, 0);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
     margin-left: 15px;
     &:before {
       content: "";
@@ -743,8 +807,8 @@ article.page {
     }
   }
   .next a {
-    @include roundcorner(top, right, 0);
-    @include roundcorner(bottom, right, 0);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
     margin-right: 10px;
     &:before {
       content: "";
@@ -788,7 +852,7 @@ article.page {
       	background: $base2;
       	color: $base00;
         border: 0;
-      	@include roundcorners(4px);
+      	border-radius: 4px;
       	@include transition(none);
       }
     	a.current, a:hover, a:focus {
@@ -798,8 +862,8 @@ article.page {
     }
   }
   .first a, .next a {
-    @include roundcorner(top, left, 0);
-    @include roundcorner(bottom, left, 0);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
     margin-left: 15px;
     &:before {
       content: "";
@@ -820,8 +884,8 @@ article.page {
   .page {}
   .ellipsis {}
   .previous a, .last a {
-    @include roundcorner(top, right, 0);
-    @include roundcorner(bottom, right, 0);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
     margin-right: 10px;
     &:before {
       content: "";
@@ -900,7 +964,7 @@ article.page {
         text-transform: uppercase;
         padding: 3px 5px;
         margin-left: 5px;
-        @include roundcorners(2px);
+        border-radius: 2px;
         position: relative;
         bottom: 2px;
       }
@@ -936,7 +1000,7 @@ article.page {
   object {
     display: block;
     max-width: 100% !important;
-    max-height: auto !important;
+    height: auto !important;
     margin: 0 auto;
     &.floatleft,
     &.float_left,
@@ -955,15 +1019,15 @@ article.page {
   }
   img {
     display: block;
-    background: #ccc;
-    padding: 10px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    @include box-shadow(0 1px 5px rgba(0, 0, 0, 0.1));
     &.wp-smiley {
       display: inline;
       padding: 0;
       background: none;
+      @include box-shadow(none);
     }
   }
 }
@@ -1017,6 +1081,7 @@ table {
 }
 
 /* Flash Messages --------------------------------------------------------- */
+.flash,
 .alert, // red
 .error, // red
 .notice, // yellow
@@ -1030,11 +1095,11 @@ table {
   margin: 1em 0;
   border-width: 1px;
   border-style: solid;
-  @include roundcorners(.25em);
-  @include boxshadow(inset 0 1px 0 rgba(255, 255, 255, 0.25));
+  border-radius: .25em;
+  @include box-shadow(inset 0 1px 0 rgba(255, 255, 255, 0.25));
   color: #fff;
   font-weight: normal;
-  @include vertical-gradient(#5bc0de, #339bb9); // blue
+  @include linear-gradient(#5bc0de, #339bb9); // blue
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
   border-color: #339bb9 #339bb9 #22697d;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
@@ -1068,15 +1133,15 @@ table {
 }
 .success {
   color: #fff;
-  @include vertical-gradient(#62c462, #57a957); // green
+  @include linear-gradient(#62c462, #57a957); // green
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
   border-color: #57a957 #57a957 #3d773d;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
 }
-.notice, .warning, .alert {
+.notice, .warning {
   color: #404040;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-  @include vertical-gradient(#fceec1, #eedc94); // yellow
+  @include linear-gradient(#fceec1, #eedc94); // yellow
   border-color: #eedc94 #eedc94 #e4c652;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
   a {
@@ -1087,9 +1152,9 @@ table {
     }
   }
 }
-.error {
+.error, .alert {
   color: #fff;
-  @include vertical-gradient(#ee5f5b, #c43c35); // red
+  @include linear-gradient(#ee5f5b, #c43c35); // red
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
   border-color: #c43c35 #c43c35 #882a25;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
@@ -1245,8 +1310,8 @@ button {
   line-height: normal;
   cursor: default;
   text-decoration: none;
-  @include roundcorners(.25em);
-  @include boxshadow(inset 0 0 0 1px rgba(255,255,255,.5), 0 1px 0 rgba(0,0,0,.1));
+  border-radius: .25em;
+  @include box-shadow(inset 0 0 0 1px rgba(255,255,255,.5), 0 1px 0 rgba(0,0,0,.1));
   color: #333;
   border: 1px solid #999;
   -moz-box-sizing: border-box;

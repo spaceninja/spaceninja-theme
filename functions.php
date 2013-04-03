@@ -42,9 +42,10 @@ function flatline_page_comments() {
  * Display warning on old posts
  * via http://www.thatsgeeky.com/2012/04/adding-a-notification-to-old-wordpress-posts/
  */
-function flatline_post_header() {
-	if( is_singular('post') && in_category( 'professional' ) ) {
-		if((get_the_time('U') < strtotime('1 year ago'))) { 
+function flatline_post_header() { ?>
+	<p class="byline"><?php flatline_posted_on(); ?></p>
+	<?php if( is_singular('post') && in_category( 'professional' ) ) {
+		if((get_the_time('U') < strtotime('1 year ago'))) {
 			$now = new DateTime();
 			$ref = new DateTime(get_the_time('r'));
 			$diff = $now->diff($ref);
