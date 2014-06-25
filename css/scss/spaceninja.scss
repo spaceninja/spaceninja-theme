@@ -592,37 +592,10 @@ article.page {
     }
   }
   time {
-    position: absolute;
-    top: 1.5em;
-    left: 0;
     line-height: 1;
     text-align: center;
-    opacity: .33;
+    font-family: $captionfontstack;
     text-transform: uppercase;
-    .month {
-      display: block;
-      font-size: .9em;
-    }
-    .date {
-      display: block;
-      font-size: 1.5em;
-      margin: .1em 0;
-    }
-    .year {
-      display: block;
-      font-size: .7em;
-    }
-    @media only screen and (max-width: 830px) {
-      position: static;
-      text-align: left;
-      opacity: 1;
-      text-transform: none;
-      .month, .date, .year {
-        display: inline;
-        margin: 0;
-        font-size: smaller;
-      }
-    }
   }
   .edit-link {
     position: absolute;

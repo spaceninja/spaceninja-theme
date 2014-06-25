@@ -585,33 +585,10 @@ article.page {
     .byline a:hover, .byline a:focus {
       color: #444444; }
   .byline time {
-    position: absolute;
-    top: 1.5em;
-    left: 0;
     line-height: 1;
     text-align: center;
-    opacity: .33;
+    font-family: "PT Serif Caption", "PT Serif", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-transform: uppercase; }
-    .byline time .month {
-      display: block;
-      font-size: .9em; }
-    .byline time .date {
-      display: block;
-      font-size: 1.5em;
-      margin: .1em 0; }
-    .byline time .year {
-      display: block;
-      font-size: .7em; }
-    @media only screen and (max-width: 830px) {
-      .byline time {
-        position: static;
-        text-align: left;
-        opacity: 1;
-        text-transform: none; }
-        .byline time .month, .byline time .date, .byline time .year {
-          display: inline;
-          margin: 0;
-          font-size: smaller; } }
   .byline .edit-link {
     position: absolute;
     top: 1em;
