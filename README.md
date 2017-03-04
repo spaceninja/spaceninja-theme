@@ -8,7 +8,7 @@ Space Ninja 2012 is a custom WordPress child theme for [spaceninja.com](http://s
 
 ## Requirements:
 
-Requires at least WordPress 3.0
+Requires at least WordPress 3.1
 
 ## Child Theme Tips:
 
