@@ -1,10 +1,10 @@
 :warning: **Attention:** This theme for WordPress 3.0 is very old and no longer supported. Use at your own risk!
 
-# Space Ninja WordPress Theme
+# Space Ninja 2012 WordPress Theme
 
 ## Summary:
 
-Space Ninja is a custom WordPress child theme for [spaceninja.com](http://spaceninja.com/), using the [Flatline](https://github.com/spaceninja/flatline-theme) base theme.
+Space Ninja 2012 is a custom WordPress child theme for [spaceninja.com](http://spaceninja.com/), using the [Flatline](https://github.com/spaceninja/flatline-theme) base theme.
 
 ## Requirements:
 
